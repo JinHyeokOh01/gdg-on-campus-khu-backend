@@ -7,13 +7,13 @@ import (
 	"net"
 	"net/http"
 	"os"
-	"github.com/JinHyeokOh01/gdg-on-campus-khu-backend/week5/lab2/config"
+	"github.com/JinHyeokOh01/gdg-on-campus-khu-backend/blob/main/week5/lab2/config"
 
 	"golang.org/x/sync/errgroup"
 )
 
 func main() {
-	if err := run(context.Background(), l); err != nil {
+	if err := run(context.Background()); err != nil {
 		log.Printf("failed to terminate server: %v", err)
 		os.Exit(1)
 	}
