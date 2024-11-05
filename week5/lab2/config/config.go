@@ -10,7 +10,7 @@ type Config struct{
 }
 
 func New()(*Config, error){
-	cfg := &config{}
+	cfg := &Config{}
 	if err := env.Parse(cfg); err != nil{
 		return nil, err
 	}
