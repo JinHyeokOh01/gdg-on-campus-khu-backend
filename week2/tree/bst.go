@@ -1,5 +1,9 @@
 package bst
 
+import(
+	"fmt"
+)
+
 type Node struct{
 	Value int
 	Left *Node
