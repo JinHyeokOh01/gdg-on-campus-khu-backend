@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	root := tree.InsertNode(50)
+	root := bst.MakeNode(50)
 	root.Insert(54)
 	root.Insert(76)
 	root.Insert(45)
@@ -15,6 +15,6 @@ func main() {
 	root.Insert(94)
 
 	fmt.Println("InOrder (Sorted Order):")
-	tree.InOrder(root)
+	bst.InOrder(root)
 	fmt.Println()
 }

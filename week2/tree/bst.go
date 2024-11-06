@@ -16,7 +16,7 @@ func MakeNode(num int) *Node {
 
 func (tree *Node) Insert(num int) {
 	if tree == nil {
-		tree = MakeNode(num)
+		return
 	} else if num < tree.Value {
 		if tree.Left == nil {
 			tree.Left = MakeNode(num) 
