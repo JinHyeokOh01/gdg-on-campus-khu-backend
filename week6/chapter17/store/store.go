@@ -3,7 +3,7 @@ package store
 import(
 	"errors"
 
-	"github.com/JinHyeokOh01/gdg-on-campus-khu-backend/week6/Chapter17/entity"
+	"github.com/JinHyeokOh01/gdg-on-campus-khu-backend/week6/chapter17/entity"
 )
 
 var(

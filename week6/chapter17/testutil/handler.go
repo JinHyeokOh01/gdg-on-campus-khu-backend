@@ -16,7 +16,7 @@ func AssertJSON(t *testing.T, want, got []byte){
 	if err := json.Unmarshal(want, &jw); err != nil{
 		t.Fatalf("cannot unmarshal want %q: %v", want, err)
 	}
-	if err := json.Unmarshal(want, &jg); err != nil{
+	if err := json.Unmarshal(got, &jg); err != nil{
 		t.Fatalf("cannot unmarshal want %q: %v", want, err)
 	}
 	if diff := cmp.Diff(jg, jw); diff != ""{
