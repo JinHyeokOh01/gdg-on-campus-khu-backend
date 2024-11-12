@@ -5,7 +5,7 @@ import(
 )
 
 type Config struct{
-	Env string `env:"TODO_ENV" envDefault:"Dev"`
+	Env string `env:"TODO_ENV" envDefault:"dev"`
 	Port int `env:"PORT" envDefault:"80"`
 }
 
