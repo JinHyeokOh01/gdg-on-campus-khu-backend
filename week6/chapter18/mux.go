@@ -5,8 +5,8 @@ import (
 
 	"github.com/go-chi/chi/v5"
 	"github.com/go-playground/validator/v10"
-	"github.com/JinHyeokOh01/gdg-on-campus-khu-backend/week6/chapter17/handler"
-	"github.com/JinHyeokOh01/gdg-on-campus-khu-backend/week6/chapter17/store"
+	"github.com/JinHyeokOh01/gdg-on-campus-khu-backend/week6/chapter18/handler"
+	"github.com/JinHyeokOh01/gdg-on-campus-khu-backend/week6/chapter18/store"
 )
 
 func NewMux() http.Handler{

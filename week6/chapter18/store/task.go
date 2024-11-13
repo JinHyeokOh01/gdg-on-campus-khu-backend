@@ -2,7 +2,7 @@ package store
 
 import(
 	"context"
-	"github.com/JinHyeokOh01/gdg-on-campus-khu-backend/week6/chapter17/entity"
+	"github.com/JinHyeokOh01/gdg-on-campus-khu-backend/week6/chapter18/entity"
 )
 
 func (r *Repository) ListTasks(

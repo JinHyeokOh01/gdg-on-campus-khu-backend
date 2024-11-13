@@ -7,7 +7,7 @@ import (
 	"net"
 	"os"
 
-	"github.com/JinHyeokOh01/gdg-on-campus-khu-backend/week6/chapter17/config"
+	"github.com/JinHyeokOh01/gdg-on-campus-khu-backend/week6/chapter18/config"
 )
 
 func main() {
