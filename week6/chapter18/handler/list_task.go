@@ -3,8 +3,8 @@ package handler
 import(
 	"net/http"
 
-	"github.com/JinHyeokOh01/gdg-on-campus-khu-backend/week6/chapter17/entity"
-	"github.com/JinHyeokOh01/gdg-on-campus-khu-backend/week6/chapter17/store"
+	"github.com/JinHyeokOh01/gdg-on-campus-khu-backend/week6/chapter18/entity"
+	"github.com/JinHyeokOh01/gdg-on-campus-khu-backend/week6/chapter18/store"
 )
 
 type ListTask struct{
