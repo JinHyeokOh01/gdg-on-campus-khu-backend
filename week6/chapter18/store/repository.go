@@ -7,6 +7,7 @@ import(
 	"time"
 
 	"github.com/JinHyeokOh01/gdg-on-campus-khu-backend/week6/chapter18/config"
+	"github.com/JinHyeokOh01/gdg-on-campus-khu-backend/week6/chapter18/clock"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jmoiron/sqlx"
 )
@@ -62,5 +63,5 @@ var (
 	_ Preparer = (*sqlx.DB)(nil)
 	_ Queryer = (*sqlx.DB)(nil)
 	_ Execer = (*sqlx.DB)(nil)
-	_ Excer = (*sqlx.Tx)(nil)
+	_ Execer = (*sqlx.Tx)(nil)
 )
