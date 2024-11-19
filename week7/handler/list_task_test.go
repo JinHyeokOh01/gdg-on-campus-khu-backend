@@ -33,6 +33,10 @@ func TestListTask(t *testing.T){
 					Status: entity.TaskStatusDone,
 				},
 			},
+			want: want{
+				status: http.StatusOK,
+				rspFile: "testdata/list_task/ok_rsp.json.golden",
+			},
 		},
 		"empty": {
 			tasks: []*entity.Task{},
