@@ -5,6 +5,7 @@ import(
 	"net/http"
 
 	"github.com/go-playground/validator/v10"
+	"github.com/jmoiron/sqlx"
 	"github.com/JinHyeokOh01/gdg-on-campus-khu-backend/week7/entity"
 	"github.com/JinHyeokOh01/gdg-on-campus-khu-backend/week7/store"
 )
