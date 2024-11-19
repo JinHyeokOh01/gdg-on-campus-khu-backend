@@ -32,7 +32,7 @@ func (ru *RegisterUser) ServeHTTP(w http.ResponseWriter, r *http.Request){
 		}, http.StatusBadRequest)
 		return
 	}
-	u, err := ru. Service.Register(ctx, b.Name, b.Password, b.Role)
+	u, err := ru.Service.RegisterUser(ctx, b.Name, b.Password, b.Role)
 	if err != nil {
 		RespondJSON(ctx, w, &ErrResponse{
 			Message: err.Error(),

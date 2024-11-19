@@ -5,6 +5,7 @@ import(
 	"database/sql"
 	"fmt"
 	"time"
+	"errors"
 
 	"github.com/JinHyeokOh01/gdg-on-campus-khu-backend/week7/config"
 	"github.com/JinHyeokOh01/gdg-on-campus-khu-backend/week7/clock"
