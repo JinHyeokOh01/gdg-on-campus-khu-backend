@@ -5,7 +5,7 @@ import(
 	"errors"
 	"fmt"
 	
-	"github.com/go-sql-driver-mysql"
+	"github.com/go-sql-driver/mysql"
 	"github.com/JinHyeokOh01/gdg-on-campus-khu-backend/week7/entity"
 )
 
