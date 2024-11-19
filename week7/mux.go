@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"net/http"
 
 	"github.com/go-chi/chi/v5"
@@ -23,7 +24,7 @@ func NewMux(ctx context.Context, cfg *config.Config) (http.Handler, func(), erro
 	if err != nil{
 		return nil, cleanup, err
 	}
-	r := store.Repository(Clocker: clock.RealClocker{})
+	r := store.Repository{Clocker: clock.RealClocker{}}
 	at := &handler.AddTask{
 		Service: &service.AddTask{DB: db, Repo: &r},
 		Validator: v,

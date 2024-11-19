@@ -11,7 +11,7 @@ import(
 
 type RegisterUser struct{
 	DB		store.Execer
-	Repo	userRegister
+	Repo	UserRegister
 }
 
 func (r *RegisterUser) RegisterUser(

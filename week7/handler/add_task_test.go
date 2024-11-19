@@ -10,6 +10,7 @@ import(
 
 	"github.com/JinHyeokOh01/gdg-on-campus-khu-backend/week7/entity"
 	"github.com/JinHyeokOh01/gdg-on-campus-khu-backend/week7/testutil"
+	"github.com/go-playground/validator/v10"
 )
 
 func TestAddTask(t *testing.T){

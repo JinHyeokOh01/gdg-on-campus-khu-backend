@@ -16,7 +16,7 @@ func TestListTask(t *testing.T){
 		status int
 		rspFile string
 	}
-	test := map[string]struct {
+	tests := map[string]struct {
 		tasks []*entity.Task
 		want want
 	}{
@@ -52,7 +52,7 @@ func TestListTask(t *testing.T){
 
 			moq := &ListTasksServiceMock{}
 			moq.ListTasksFunc = func(ctx context.Context) (entity.Tasks, error){
-				if tt.Tasks != nil{
+				if tt.tasks != nil{
 					return tt.tasks, nil
 				}
 				return nil, errors.New("error from mock")
