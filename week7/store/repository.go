@@ -12,6 +12,14 @@ import(
 	"github.com/jmoiron/sqlx"
 )
 
+const (
+	ErrCodeMySQLDuplicateEntry = 1062
+)
+
+var (
+	ErrAlreadyEntry = errors.New("duplicate entry")
+)
+
 func New(ctx context.Context, cfg *config.Config) (*sqlx.DB, func(), error){
 	db, err := sql.Open("mysql", 
 		fmt.Sprintf(
