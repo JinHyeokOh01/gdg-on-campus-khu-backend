@@ -1,4 +1,4 @@
-module github.com/JinHyeokOh01/gdg-on-campus-khu-backend/week7
+module github.com/JinHyeokOh01/gdg-on-campus-khu-backend/week8
 
 go 1.23.1
 
