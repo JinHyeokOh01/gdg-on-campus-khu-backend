@@ -4,13 +4,13 @@ import(
 	"context"
 	_ "embed"
 	"fmt"
-	//"net/http"
-	//"time"
+	"net/http"
+	"time"
 
 	"github.com/JinHyeokOh01/gdg-on-campus-khu-backend/week8/clock"
 	"github.com/JinHyeokOh01/gdg-on-campus-khu-backend/week8/entity"
-	//"github.com/google/uuid"
-	//"github.com/lestrrat-go/jwx/v2/jwa"
+	"github.com/google/uuid"
+	"github.com/lestrrat-go/jwx/v2/jwa"
 	"github.com/lestrrat-go/jwx/v2/jwk"
 	"github.com/lestrrat-go/jwx/v2/jwt"
 )
@@ -137,11 +137,11 @@ func (j *JWTer) FillContext(r *http.Request) (*http.Request, error){
 	uid, err := j.Store.Load(r.Context(), token.JwtID())
 	if err != nil{
 		return nil, err
-		ctx := SetUserID(r.Context(), uid)
-		ctx = SetRole(ctx, token)
-		clone := r.Clone(ctx)
-		return clone, nil
 	}
+	ctx := SetUserID(r.Context(), uid)
+	ctx = SetRole(ctx, token)
+	clone := r.Clone(ctx)
+	return clone, nil
 }
 
 func IsAdmin(ctx context.Context) bool{
