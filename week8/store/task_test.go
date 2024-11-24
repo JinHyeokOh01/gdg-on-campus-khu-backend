@@ -7,7 +7,7 @@ import(
 	"github.com/JinHyeokOh01/gdg-on-campus-khu-backend/week8/clock"
 	"github.com/JinHyeokOh01/gdg-on-campus-khu-backend/week8/entity"
 	"github.com/JinHyeokOh01/gdg-on-campus-khu-backend/week8/testutil"
-	"github.com/JinHyeokOh01/gdg-on-campus-khu-backend/week8/testutil/fixture" //추가
+	"github.com/JinHyeokOh01/gdg-on-campus-khu-backend/week8/testutil/fixture"
 	"github.com/DATA-DOG/go-sqlmock"
 	"github.com/google/go-cmp/cmp"
 	"github.com/jmoiron/sqlx"	
@@ -29,7 +29,6 @@ func prepareUser(ctx context.Context, t *testing.T, db Execer) entity.UserID{
 }
 
 func TestRepository_ListTasks(t *testing.T){
-	//추가
 	t.Parallel()
 
 	ctx := context.Background()
@@ -41,11 +40,9 @@ func TestRepository_ListTasks(t *testing.T){
 	if err != nil{
 		t.Fatal(err)
 	}
-	//수정
 	wantUserID, wantss := prepareTasks(ctx, t, tx)
 
 	sut := &Repository{}
-	//wantUserID 추가
 	gots, err := sut.ListTasks(ctx, tx, wantUserID)
 	if err != nil{
 		t.Fatalf("unexpected error: %v", err)
@@ -55,19 +52,11 @@ func TestRepository_ListTasks(t *testing.T){
 	}
 }
 
-func prepareTasks(ctx context.Context, t *testing.T, con Execer) (entity.UserID, entity.Tasks) {// UserID 추가
+func prepareTasks(ctx context.Context, t *testing.T, con Execer) (entity.UserID, entity.Tasks) {
 	t.Helper()
-	//추가
 	userID := prepareUser(ctx, t, con)
 	otherUserID := prepareUser(ctx, t, con)
-
-	/* 삭제
-	if _, err := con.ExecContext(ctx, "DELETE FROM task;"); err != nil{
-		t.Logf("failed to intialize task: %v", err)
-	}
-	*/
 	c := clock.FixedClocker{}
-	//UserID 추가
 	wants := entity.Tasks{
 		{
 			UserID: userID,
@@ -79,14 +68,7 @@ func prepareTasks(ctx context.Context, t *testing.T, con Execer) (entity.UserID,
 			Title: "want task 2", Status: "todo",
 			Created: c.Now(), Modified: c.Now(),
 		},
-		/*삭제
-		{
-			Title: "want task 3", Status: "todo",
-			Created: c.Now(), Modified: c.Now(),
-		},
-		*/
 	}
-	//추가
 	tasks := entity.Tasks{
 		wants[0],
 		{
@@ -96,18 +78,15 @@ func prepareTasks(ctx context.Context, t *testing.T, con Execer) (entity.UserID,
 		},
 		wants[1],
 	}
-	//여기까지
-	result, err := con.ExecContext(ctx, //user_id 추가
+	result, err := con.ExecContext(ctx,
 	`INSERT INTO task (user_id, title, status, created, modified)
 		VALUES
 			(?, ?, ?, ?, ?),
 			(?, ?, ?, ?, ?),
 			(?, ?, ?, ?, ?);`,
-		//수정
 		tasks[0].UserID, tasks[0].Title, tasks[0].Status, tasks[0].Created, tasks[0].Modified,
 		tasks[1].UserID, tasks[1].Title, tasks[1].Status, tasks[1].Created, tasks[1].Modified,
 		tasks[2].UserID, tasks[2].Title, tasks[2].Status, tasks[2].Created, tasks[2].Modified,
-		//여기까지
 	)
 	if err != nil{
 		t.Fatal(err)
@@ -116,12 +95,10 @@ func prepareTasks(ctx context.Context, t *testing.T, con Execer) (entity.UserID,
 	if err != nil{
 		t.Fatal(err)
 	}
-	//수정
 	tasks[0].ID = entity.TaskID(id)
 	tasks[1].ID = entity.TaskID(id + 1)
 	tasks[2].ID = entity.TaskID(id + 2)
 	return userID, wants
-	//여기까지
 }
 
 func TestRepository_AddTask(t *testing.T){

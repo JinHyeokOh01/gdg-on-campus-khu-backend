@@ -6,7 +6,8 @@ import(
 )
 
 func (r *Repository) ListTasks(
-	ctx context.Context, db Queryer, id entity.UserID, // id 추가
+	// id entity.UserID 추가
+	ctx context.Context, db Queryer, id entity.UserID, 
 ) (entity.Tasks, error){
 	tasks := entity.Tasks{}
 	//user_id 추가, WHERE 절 추가
@@ -15,7 +16,8 @@ func (r *Repository) ListTasks(
 		status, created, modified
 	FROM task
 	WHERE user_id = ?;`
-	if err := db.SelectContext(ctx, &tasks, sql, id); err != nil{ //id 추가
+	//id 추가
+	if err := db.SelectContext(ctx, &tasks, sql, id); err != nil{ 
 		return nil, err
 	}
 	return tasks, nil
@@ -31,7 +33,8 @@ func (r *Repository) AddTask(
 		(user_id, title, status, created, modified)
 	VALUES (?, ?, ?, ?, ?)`
 	result, err := db.ExecContext(
-		ctx, sql, t.UserID, t.Title, t.Status, //t.UserID 추가
+		//t.UserID 추가
+		ctx, sql, t.UserID, t.Title, t.Status, 
 		t.Created, t.Modified,
 	)
 	if err != nil{

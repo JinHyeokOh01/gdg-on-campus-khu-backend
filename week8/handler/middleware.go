@@ -1,7 +1,9 @@
 package handler
 
 import(
-	"fmt"
+	"log"
+	"net/http"
+	"github.com/JinHyeokOh01/gdg-on-campus-khu-backend/week8/auth"
 )
 
 func AuthMiddleware(j *auth.JWTer) func(next http.Handler) http.Handler{
@@ -11,7 +13,7 @@ func AuthMiddleware(j *auth.JWTer) func(next http.Handler) http.Handler{
 			if err != nil{
 				RespondJSON(r.Context(), w, ErrResponse{
 					Message: "not find auth info",
-					Details: []string{err,Error()},
+					Details: []string{err.Error()},
 				}, http.StatusUnauthorized)
 				return
 			}
